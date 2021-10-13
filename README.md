@@ -19,32 +19,29 @@ sudo cp firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/
 
 Run following commands for disable power management and plugging/replugging issues.
 
-`sudo mkdir -p /etc/modprobe.d/`
-
-`sudo touch /etc/modprobe.d/rtl8188fu.conf`
-
-`echo "options rtl8188fu rtw_power_mgnt=0 rtw_enusbss=0" | sudo tee /etc/modprobe.d/rtl8188fu.conf`
-
+```
+sudo mkdir -p /etc/modprobe.d/
+sudo touch /etc/modprobe.d/rtl8188fu.conf
+echo "options rtl8188fu rtw_power_mgnt=0 rtw_enusbss=0" | sudo tee /etc/modprobe.d/rtl8188fu.conf
+```
 
 Run following commands for disabling MAC Address Spoofing (Note: This is not needed on Ubuntu based distributions. MAC Address Spoofing is already disable on Ubuntu base).
 
-`sudo mkdir -p /etc/NetworkManager/conf.d/`
-
-`sudo touch /etc/NetworkManager/conf.d/disable-random-mac.conf`
-
-`echo -e "[device]\nwifi.scan-rand-mac-address=no" | sudo tee /etc/NetworkManager/conf.d/disable-random-mac.conf`
-
+```
+sudo mkdir -p /etc/NetworkManager/conf.d/
+sudo touch /etc/NetworkManager/conf.d/disable-random-mac.conf
+echo -e "[device]\nwifi.scan-rand-mac-address=no" | sudo tee /etc/NetworkManager/conf.d/disable-random-mac.conf
+```
 
 ------------------
 
 ## How to uninstall
 
-`sudo dkms remove rtl8188fu/1.0 --all`
-
-`sudo rm -f /lib/firmware/rtlwifi/rtl8188fufw.bin`
-
-`sudo rm -f /etc/modprobe.d/rtl8188fu.conf`
-
+```
+sudo dkms remove rtl8188fu/1.0 --all
+sudo rm -f /lib/firmware/rtlwifi/rtl8188fufw.bin
+sudo rm -f /etc/modprobe.d/rtl8188fu.conf
+```
 
 ------------------
 
@@ -54,17 +51,16 @@ You can install rtl8188fu driver with following commands from PPA.
 
 for xUbuntu 16.04-18.04-20.04-20.10 / Linux Mint 18.x-19.x-20.x
 
-`sudo add-apt-repository ppa:kelebek333/kablosuz`
-
-`sudo apt-get update`
-
-`sudo apt install rtl8188fu-dkms`
-
+```
+sudo add-apt-repository ppa:kelebek333/kablosuz
+sudo apt-get update
+sudo apt install rtl8188fu-dkms
+```
 
 You can purge packages with following commands
-
-`sudo apt purge rtl8188fu-dkms`
-
+```
+sudo apt purge rtl8188fu-dkms
+```
 ------------------
 
 ## How to install (for arm devices)
